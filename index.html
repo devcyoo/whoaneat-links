@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WhoaNeat finds</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* VOICE: friendly, quick, honest. A phone-first link-in-bio for WhoaNeat.
+   IDEA: a stack of bright price-tag cards, one tap each to Amazon.ca.
+   PICTURE: the list itself, under the brand header.
+   COLOUR and TYPE: brand guide: Zap #FFD23F field, Ink #16161D, Mint #2ED39A accent, Cloud cards; Bricolage ExtraBold + Inter.
+   LAYOUT: one centred column of up to 560px, header then disclosure then cards. */
+:root{color-scheme:light dark;--bg:light-dark(#FFD23F,#16161D);--ink:light-dark(#16161D,#FAF7F0);--card:light-dark(#FAF7F0,#22222b);--sub:light-dark(#4a4a52,#b9b6ad);--mint:#2ED39A}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 Inter,system-ui,sans-serif;overflow-x:clip}
+main{max-width:560px;margin:0 auto;padding:36px 16px 48px}
+header{text-align:center;margin-bottom:18px}
+.logo{font:800 44px/1.05 "Bricolage Grotesque",system-ui,sans-serif;letter-spacing:-.02em;margin:0}
+.logo svg{width:26px;height:26px;vertical-align:top;margin-left:2px}
+.tag{font-weight:600;margin:8px 0 0}
+.disc{font-size:13px;color:var(--sub);text-align:center;margin:0 0 22px}
+ul{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+a.card{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:14px;align-items:center;background:var(--card);color:var(--ink);text-decoration:none;border-radius:18px;padding:14px 16px;min-height:72px;box-shadow:0 2px 0 #16161D;border:2px solid #16161D;transition:transform .12s}
+a.card:hover{transform:translateY(-2px)}
+a.card:focus-visible{outline:3px solid var(--mint);outline-offset:3px}
+.n{font:800 20px/1 "Bricolage Grotesque",system-ui,sans-serif;width:36px;height:36px;border-radius:50%;background:#FFD23F;color:#16161D;display:grid;place-items:center;border:2px solid #16161D}
+.t{font-weight:600;font-size:16px;line-height:1.3}
+.h{font-size:13px;color:var(--sub);display:block;margin-top:2px}
+.go{font-weight:600;font-size:14px;white-space:nowrap}
+footer{text-align:center;margin-top:28px;font:800 22px "Bricolage Grotesque",system-ui,sans-serif}
+footer small{display:block;font:400 13px Inter,system-ui,sans-serif;color:var(--sub);margin-top:6px}
+@media (prefers-reduced-motion:reduce){a.card{transition:none}}
+</style>
+</head>
+<body>
+<main>
+<header>
+<h1 class="logo">whoa neat<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1c1 6 4 9 11 11-7 2-10 5-11 11-1-6-4-9-11-11 7-2 10-5 11-11z" fill="#2ED39A" stroke="#16161D" stroke-width="1.2"/></svg></h1>
+<p class="tag">Little things. Big difference.</p>
+</header>
+<p class="disc">#ad · Demos in our videos are AI-generated. As an Amazon Associate I earn from qualifying purchases.</p>
+<ul id="list"></ul>
+<footer>whoa. neat.<small>Prices and deals change on Amazon.ca, so check the listing before you buy.</small></footer>
+</main>
+<script>
+{
+const items=[
+["Windshield snow cover","Scraping ice at 7am in -20 is a choice","B077RQ6WKQ"],
+["Philips fabric shaver","Why do sweaters get that fuzzy, worn-out look?","B00E3862DE"],
+["ACE2ACE pet hair remover","My couch is 40% cat at this point","B0C3G9LFYS"],
+["Levoit top-fill humidifier","Why does every door handle zap me in winter?","B0C2C9NHZW"],
+["MCGOR motion sensor lights","Why is under the sink always pitch black?","B0BDF8CVBN"],
+["Cordless tire inflator","Cold snap = low tires every single morning","B0FQC225RV"],
+["WOLFBOX electric air duster","Why is there always something stuck in my keyboard?","B0DSW7R4VN"],
+["Veken cat water fountain","Why won't my cat drink from her bowl?","B0G6SBV4TT"],
+["Heated throw blanket","Not touching the thermostat this year","B0CVX52P21"],
+["Zoratoo cat window perch","My cat vs. the tiny windowsill","B0D9L7JDT3"]
+];
+document.getElementById('list').innerHTML=items.map(([t,h,a],i)=>`<li><a class="card" href="https://www.amazon.ca/dp/${a}?tag=whoaneat0a-20" target="_blank" rel="noopener sponsored"><span class="n">${i+1}</span><span><span class="t">${t}</span><span class="h">${h}</span></span><span class="go">Amazon.ca →</span></a></li>`).join('');
+}
+</script>
+</body>
+</html>
