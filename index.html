@@ -55,7 +55,9 @@ const items=[
 ["WOLFBOX electric air duster","Why is there always something stuck in my keyboard?","B0DSW7R4VN"],
 ["Veken cat water fountain","Why won't my cat drink from her bowl?","B0G6SBV4TT"],
 ["Heated throw blanket","Not touching the thermostat this year","B0CVX52P21"],
-["Zoratoo cat window perch","My cat vs. the tiny windowsill","B0D9L7JDT3"]
+["Zoratoo cat window perch","My cat vs. the tiny windowsill","B0D9L7JDT3"],
+["Shower squeegee","Why do my glass doors always look dirty?","B0BCWDTDYN"],
+["Self-warming cat bed","A cat bed that warms itself","B096S3QHWL"]
 ];
 document.getElementById('list').innerHTML=items.map(([t,h,a],i)=>`<li><a class="card" href="https://www.amazon.ca/dp/${a}?tag=whoaneat0a-20" target="_blank" rel="noopener sponsored"><span class="n">${i+1}</span><span><span class="t">${t}</span><span class="h">${h}</span></span><span class="go">Amazon.ca →</span></a></li>`).join('');
 }
