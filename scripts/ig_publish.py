@@ -29,10 +29,26 @@ def publish(item):
     link = call("GET", media_id, fields="permalink").get("permalink", "")
     return media_id, link
 
-def main():
-    global IG_USER
-    if not IG_USER:   # derive the Instagram account ID from the Page token
+def resolve_account():
+    """Accept a Page token or a user token; find the Page linked to Instagram and use its token."""
+    global IG_USER, TOKEN
+    dbg = call("GET", "debug_token", input_token=TOKEN).get("data", {})
+    exp = dbg.get("expires_at", 0)
+    print("token type:", dbg.get("type"), "| expires:", "never" if not exp else dt.datetime.fromtimestamp(exp, dt.timezone.utc).isoformat())
+    if dbg.get("type") == "USER":
+        pages = call("GET", "me/accounts", fields="name,access_token,instagram_business_account").get("data", [])
+        page = next((p for p in pages if p.get("instagram_business_account")), None)
+        if not page:
+            raise RuntimeError("no Facebook Page linked to an Instagram account was found for this token")
+        print("using Page:", page["name"])
+        TOKEN = page["access_token"]
+        IG_USER = IG_USER or page["instagram_business_account"]["id"]
+    elif not IG_USER:
         IG_USER = call("GET", "me", fields="instagram_business_account")["instagram_business_account"]["id"]
+
+def main():
+    global IG_USER, TOKEN
+    resolve_account()
     q = json.load(open(QUEUE))
     now = dt.datetime.now(dt.timezone.utc)
     done_one = False
