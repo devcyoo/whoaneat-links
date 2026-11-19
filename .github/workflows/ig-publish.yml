@@ -1,0 +1,36 @@
+name: Instagram auto-publish
+on:
+  schedule:
+    - cron: "*/30 * * * *"      # check the queue every 30 min
+    - cron: "17 9 * * 1"        # weekly token refresh (Mon 09:17 UTC)
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency: ig-publish
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install requests pynacl
+      - name: Refresh token (weekly)
+        if: github.event.schedule == '17 9 * * 1'
+        env:
+          IG_TOKEN: ${{ secrets.IG_TOKEN }}
+          GH_PAT: ${{ secrets.GH_PAT }}
+          REPO: ${{ github.repository }}
+        run: python scripts/ig_refresh_token.py
+      - name: Publish due Reels
+        if: github.event.schedule != '17 9 * * 1'
+        env:
+          IG_TOKEN: ${{ secrets.IG_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+        run: python scripts/ig_publish.py
+      - name: Save queue status
+        run: |
+          git config user.name "whoaneat-bot"
+          git config user.email "bot@whoaneat.com"
+          git add queue/instagram.json
+          git diff --cached --quiet || (git commit -m "ig: update queue status" && git push)
