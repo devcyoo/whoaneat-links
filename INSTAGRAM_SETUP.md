@@ -5,19 +5,15 @@ Runs on GitHub Actions (free). It needs no Mac and no Claude session. Every 30 m
 ## 1. Make sure @whoa.neat is a Professional account
 In the Instagram app: Settings → Account type and tools → it must be **Business** or **Creator**. Personal accounts can't use the API.
 
-## 2. Create the Meta app (about 5 minutes)
-1. Go to developers.facebook.com → My Apps → **Create app** → use case **"Manage messaging & content on Instagram"** → no business portfolio needed → Create.
-2. In the app: **Instagram → API setup with Instagram login** → section **"Generate access tokens"** → **Add account** → log in as **whoa.neat** → allow the permissions (instagram_business_basic, instagram_business_content_publish).
-3. Click **Generate token** next to whoa.neat and copy it. This is a long-lived token, valid for 60 days and refreshed weekly by the workflow.
-4. Copy the **Instagram user ID** shown next to the account (a long number).
+## 2. Meta app and token (Facebook login route; "Instagram login" now needs a business portfolio)
+1. @whoa.neat must be linked to a Facebook Page (Instagram app → Edit profile → Page).
+2. App "WhoaNeat Publisher" → Use cases → Customize → **API setup with Facebook login**. Add these permissions: instagram_basic, instagram_content_publish, pages_show_list, pages_read_engagement, business_management.
+3. Graph API Explorer (developers.facebook.com/tools/explorer) → app WhoaNeat Publisher → User Token with those permissions → Generate → choose the Page and @whoa.neat.
+4. Access Token Debugger → **Extend Access Token** (gives a long-lived user token).
+5. In the Explorer, with the long-lived token, run `me/accounts?fields=name,access_token,instagram_business_account`. The Page's `access_token` is `IG_TOKEN` (it never expires), and `instagram_business_account.id` is `IG_USER_ID`.
 
-The app can stay in **Development mode**: the app's own admin and tester accounts can publish without App Review.
-
-## 3. Add 3 GitHub secrets
-In the repo devcyoo/whoaneat-links → Settings → Secrets and variables → Actions → New repository secret:
-- `IG_TOKEN`: the token from step 2.3
-- `IG_USER_ID`: the user ID from step 2.4
-- `GH_PAT`: a fine-grained GitHub token for this repo only, with **Secrets: Read and write**. The weekly job uses it to save the refreshed IG_TOKEN.
+## 3. Add 2 GitHub secrets
+`gh secret set IG_TOKEN -R devcyoo/whoaneat-links` and `gh secret set IG_USER_ID -R devcyoo/whoaneat-links` (paste at the prompt). GH_PAT is no longer needed.
 
 ## 4. Test it
 Actions tab → "Instagram auto-publish" → **Run workflow**. Nothing posts until the first scheduled time. For an instant test, set one item's `publish_at` to a past time and run the workflow again.

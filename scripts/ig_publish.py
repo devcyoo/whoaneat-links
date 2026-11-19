@@ -1,7 +1,7 @@
-"""Publish due Reels from queue/instagram.json via the official Instagram API (Instagram Login)."""
+"""Publish due Reels from queue/instagram.json via the official Instagram Graph API (Facebook Login, Page token)."""
 import json, os, sys, time, datetime as dt, requests
 
-API = "https://graph.instagram.com/v23.0"
+API = "https://graph.facebook.com/v23.0"
 TOKEN, IG_USER = os.environ["IG_TOKEN"], os.environ["IG_USER_ID"]
 QUEUE = "queue/instagram.json"
 
