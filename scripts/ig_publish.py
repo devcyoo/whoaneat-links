@@ -2,7 +2,7 @@
 import json, os, sys, time, datetime as dt, requests
 
 API = "https://graph.facebook.com/v23.0"
-TOKEN, IG_USER = os.environ["IG_TOKEN"], os.environ["IG_USER_ID"]
+TOKEN, IG_USER = os.environ["IG_TOKEN"], os.environ.get("IG_USER_ID", "").strip()
 QUEUE = "queue/instagram.json"
 
 def call(method, path, **params):
@@ -30,6 +30,9 @@ def publish(item):
     return media_id, link
 
 def main():
+    global IG_USER
+    if not IG_USER:   # derive the Instagram account ID from the Page token
+        IG_USER = call("GET", "me", fields="instagram_business_account")["instagram_business_account"]["id"]
     q = json.load(open(QUEUE))
     now = dt.datetime.now(dt.timezone.utc)
     done_one = False
