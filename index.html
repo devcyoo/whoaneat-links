@@ -37,6 +37,7 @@ a.card:focus-visible{outline:3px solid var(--mint);outline-offset:3px}
 .guides a{display:block;text-align:center;background:#16161D;color:#FFD23F;font:800 18px/1.2 "Bricolage Grotesque",system-ui,sans-serif;text-decoration:none;border-radius:16px;padding:14px}
 .guides a:focus-visible{outline:3px solid var(--mint);outline-offset:3px}
 .sec{font-weight:600;margin:0 0 10px}
+.note{font-size:13px;color:var(--sub);margin:-12px 0 22px;text-align:center}
 a.ca{display:block;text-align:right;font-size:13px;font-weight:600;color:var(--ink);margin:6px 8px 0;text-decoration:underline}
 footer{text-align:center;margin-top:28px;font:800 22px "Bricolage Grotesque",system-ui,sans-serif}
 footer small{display:block;font:400 13px Inter,system-ui,sans-serif;color:var(--sub);margin-top:6px}
@@ -49,7 +50,9 @@ footer small{display:block;font:400 13px Inter,system-ui,sans-serif;color:var(--
 <h1 class="logo">whoa neat<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1c1 6 4 9 11 11-7 2-10 5-11 11-1-6-4-9-11-11 7-2 10-5 11-11z" fill="#2ED39A" stroke="#16161D" stroke-width="1.2"/></svg></h1>
 <p class="tag">Little things. Big difference.</p>
 </header>
+<p class="sec">Black Friday gift picks</p>
 <nav class="guides" aria-label="Gift guides"><a href="/gifts-for-cat-people/">🐈 Gifts for cat people</a><a href="/winter-car-kit/">❄️ Winter car kit</a><a href="/cozy-home-under-50/">🛋️ Cozy home finds</a></nav>
+<p class="note">Black Friday week runs Nov 19–30 on Amazon. Check each listing for today's price and deals.</p>
 <p class="sec">All finds</p>
 <ul id="list"></ul>
 <footer>whoa. neat.<small>Prices and deals change on Amazon, so check the listing before you buy.</small><small>#ad · As an Amazon Associate I earn from qualifying purchases.</small><small>© 2026 WhoaNeat</small></footer>
@@ -69,7 +72,7 @@ const items=[
 ["Shower squeegee","Why do my glass doors always look dirty?","B0BCWDTDYN"],
 ["Self-warming cat bed","A cat bed that warms itself","B096S3QHWL"]
 ];
-document.getElementById('list').innerHTML=items.map(([t,h,a,ca],i)=>`<li><a class="card" href="https://www.amazon.com/dp/${a}?tag=${window.WN_TAG||'whoaneatweb-20'}" target="_blank" rel="noopener sponsored"><span class="n">${i+1}</span><span><span class="t">${t}</span><span class="h">${h}</span></span><span class="go">Amazon →</span></a>${ca?`<a class="ca" href="https://www.amazon.ca/dp/${ca}?tag=whoaneat0a-20" target="_blank" rel="noopener sponsored">🇨🇦 Amazon.ca</a>`:''}</li>`).join('');
+document.getElementById('list').innerHTML=items.map(([t,h,a,ca],i)=>`<li><a class="card" href="https://www.amazon.com/dp/${a}?tag=${window.WN_TAG||'whoaneat02-20'}" target="_blank" rel="noopener sponsored"><span class="n">${i+1}</span><span><span class="t">${t}</span><span class="h">${h}</span></span><span class="go">Amazon →</span></a>${ca?`<a class="ca" href="https://www.amazon.ca/dp/${ca}?tag=whoaneat0a-20" target="_blank" rel="noopener sponsored">🇨🇦 Amazon.ca</a>`:''}</li>`).join('');
 }
 </script>
 </body>
