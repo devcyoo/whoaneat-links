@@ -10,7 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 <style>
 /* VOICE: friendly, quick, honest. A phone-first link-in-bio for WhoaNeat.
-   IDEA: a stack of bright price-tag cards, one tap each to Amazon.ca.
+   IDEA: a stack of bright price-tag cards, one tap each to Amazon.
    PICTURE: the list itself, under the brand header.
    COLOUR and TYPE: brand guide: Zap #FFD23F field, Ink #16161D, Mint #2ED39A accent, Cloud cards; Bricolage ExtraBold + Inter.
    LAYOUT: one centred column of up to 560px, header then disclosure then cards. */
@@ -31,6 +31,7 @@ a.card:focus-visible{outline:3px solid var(--mint);outline-offset:3px}
 .t{font-weight:600;font-size:16px;line-height:1.3}
 .h{font-size:13px;color:var(--sub);display:block;margin-top:2px}
 .go{font-weight:600;font-size:14px;white-space:nowrap}
+a.ca{display:block;text-align:right;font-size:13px;font-weight:600;color:var(--ink);margin:6px 8px 0;text-decoration:underline}
 footer{text-align:center;margin-top:28px;font:800 22px "Bricolage Grotesque",system-ui,sans-serif}
 footer small{display:block;font:400 13px Inter,system-ui,sans-serif;color:var(--sub);margin-top:6px}
 @media (prefers-reduced-motion:reduce){a.card{transition:none}}
@@ -43,7 +44,7 @@ footer small{display:block;font:400 13px Inter,system-ui,sans-serif;color:var(--
 <p class="tag">Little things. Big difference.</p>
 </header>
 <ul id="list"></ul>
-<footer>whoa. neat.<small>Prices and deals change on Amazon.ca, so check the listing before you buy.</small><small>#ad · As an Amazon Associate I earn from qualifying purchases.</small><small>© 2026 WhoaNeat</small></footer>
+<footer>whoa. neat.<small>Prices and deals change on Amazon, so check the listing before you buy.</small><small>#ad · As an Amazon Associate I earn from qualifying purchases.</small><small>© 2026 WhoaNeat</small></footer>
 </main>
 <script>
 {
@@ -54,13 +55,13 @@ const items=[
 ["MCGOR motion sensor lights","Why is under the sink always pitch black?","B0BDF8CVBN"],
 ["Cordless tire inflator","Cold snap = low tires every single morning","B0FQC225RV"],
 ["WOLFBOX electric air duster","Why is there always something stuck in my keyboard?","B0DSW7R4VN"],
-["Veken cat water fountain","Why won't my cat drink from her bowl?","B0G6SBV4TT"],
+["Veken cat water fountain","Why won't my cat drink from her bowl?","B0FPFZ7XFJ","B0G6SBV4TT"],
 ["Heated throw blanket","Not touching the thermostat this year","B0CVX52P21"],
 ["Zoratoo cat window perch","My cat vs. the tiny windowsill","B0D9L7JDT3"],
 ["Shower squeegee","Why do my glass doors always look dirty?","B0BCWDTDYN"],
 ["Self-warming cat bed","A cat bed that warms itself","B096S3QHWL"]
 ];
-document.getElementById('list').innerHTML=items.map(([t,h,a],i)=>`<li><a class="card" href="https://www.amazon.ca/dp/${a}?tag=whoaneat0a-20" target="_blank" rel="noopener sponsored"><span class="n">${i+1}</span><span><span class="t">${t}</span><span class="h">${h}</span></span><span class="go">Amazon.ca →</span></a></li>`).join('');
+document.getElementById('list').innerHTML=items.map(([t,h,a,ca],i)=>`<li><a class="card" href="https://www.amazon.com/dp/${a}?tag=whoaneat02-20" target="_blank" rel="noopener sponsored"><span class="n">${i+1}</span><span><span class="t">${t}</span><span class="h">${h}</span></span><span class="go">Amazon →</span></a>${ca?`<a class="ca" href="https://www.amazon.ca/dp/${ca}?tag=whoaneat0a-20" target="_blank" rel="noopener sponsored">🇨🇦 Amazon.ca</a>`:''}</li>`).join('');
 }
 </script>
 </body>
