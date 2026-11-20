@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="only light">
+<meta name="p:domain_verify" content="4c07876b5759d596aec3be09d6902be1"/>
+<meta name="theme-color" content="#FFD23F">
+<title>TikTok connection · WhoaNeat</title>
+<meta name="robots" content="noindex,nofollow">
+<style>
+:root{color-scheme:only light}
+body{margin:0;background:#FFD23F;color:#16161D;font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:640px;margin:0 auto;padding:32px 16px 48px}
+h1{font-size:30px;line-height:1.2;margin:12px 0 8px} h2{font-size:19px;margin:24px 0 6px}
+a{color:#16161D} .card{background:#FAF7F0;border:2px solid #16161D;border-radius:16px;padding:18px}
+code{display:block;word-break:break-all;background:#fff;border:1px solid #16161D;border-radius:8px;padding:10px;margin:10px 0}
+</style>
+</head>
+<body><main><a href="/">← whoa neat</a>
+<div class="card"><h1>TikTok connection</h1><p id="msg">Waiting for TikTok…</p><code id="code" hidden></code></div>
+<script>
+const p=new URLSearchParams(location.search);const m=document.getElementById('msg'),c=document.getElementById('code');
+if(p.get('error')){m.textContent='TikTok returned an error: '+p.get('error')+' '+(p.get('error_description')||'');}
+else if(p.get('code')){m.textContent='Connected. WhoaNeat Publisher is finishing setup on the owner\'s computer; you can close this tab.';c.textContent=p.get('code');c.hidden=false;}
+</script></main></body></html>
