@@ -42,21 +42,20 @@
     ],
     "publish_at": "2026-11-23T18:30:00+00:00",
     "status": "pending",
-    "caption": "Small upgrades for a cozier home 🏠\nLink in bio 👆\n#ad #affiliate · AI visualization of a real product · As an Amazon Associate I earn from qualifying purchases.\n\n#homehacks #cozyhome #giftideas #amazonfinds #whoaneat"
+    "caption": "Small upgrades for a cozier home 🏠\nLink in bio 👆\n#ad #affiliate · As an Amazon Associate I earn from qualifying purchases.\n\n#homehacks #cozyhome #giftideas #amazonfinds #whoaneat"
   },
   {
     "name": "gift-guide-winter-mornings",
     "type": "carousel",
     "image_urls": [
-      "https://whoaneat.com/posts/car-0.jpg?v=2",
-      "https://whoaneat.com/posts/car-1.jpg?v=2",
-      "https://whoaneat.com/posts/car-2.jpg?v=2",
-      "https://whoaneat.com/posts/car-3.jpg?v=2",
-      "https://whoaneat.com/posts/car-4.jpg?v=2"
+      "https://whoaneat.com/posts/car-0.jpg?v=3",
+      "https://whoaneat.com/posts/car-1.jpg?v=3",
+      "https://whoaneat.com/posts/car-2.jpg?v=3",
+      "https://whoaneat.com/posts/car-3.jpg?v=3"
     ],
     "publish_at": "2026-11-23T01:30:00+00:00",
     "status": "pending",
-    "caption": "Gifts for the person who hates winter mornings 🥶🚗\nLink in bio 👆\n#ad #affiliate · AI visualization of a real product · As an Amazon Associate I earn from qualifying purchases.\n\n#wintercar #carhacks #giftideas #amazonfinds #whoaneat"
+    "caption": "Gifts for the person who hates winter mornings 🥶🚗\nLink in bio 👆\n#ad #affiliate · As an Amazon Associate I earn from qualifying purchases.\n\n#wintercar #carhacks #giftideas #amazonfinds #whoaneat"
   },
   {
     "name": "windshield-v2",
@@ -131,7 +130,7 @@
     "publish_at": "2026-11-29T00:00:00+00:00",
     "status": "superseded",
     "caption": "Snap. Stays put. 📱\nLink in bio 👆\n#ad #affiliate · AI visualization of a real product · As an Amazon Associate I earn from qualifying purchases.\n\n#caraccessories #magsafe #giftideas #amazonfinds #whoaneat",
-    "note": "Reels are scheduled in Meta Business Suite by Claude Code (IG Queue tab in the sheet). Do not re-enable here, or they will double-post."
+    "note": "Do not use: MagSafe video 25a72fde retired 2026-11-21."
   },
   {
     "name": "humidifier",
