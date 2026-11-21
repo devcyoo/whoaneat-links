@@ -1,9 +1,10 @@
-/* Amazon tag for every amazon.com link on whoaneat.com, by traffic source.
-   ?src=ig|pin|tt|web picks the tracking ID (kept for the visit in sessionStorage);
-   no ?src = whoaneatweb-20. whoaneat02-20 stays on YouTube descriptions only.
-   The IDs were created in Associates on 2026-11-21. */
+/* Amazon tag for every amazon.com link on whoaneat.com.
+   Only whoaneat02-20 exists on the US Associates account (confirmed 2026-11-21).
+   Owner decision: one tracking ID until ~150 clicks or the first sales.
+   Per-channel routing is kept below, switched OFF. Do not turn it on until the
+   owner says the other IDs exist in Associates > Manage Tracking IDs. */
 (function () {
-  var ROUTING = true;
+  var ROUTING = false;
   var DEFAULT_TAG = 'whoaneat02-20';
   var MAP = { ig: 'whoaneatig-20', pin: 'whoaneatpin-20', tt: 'whoaneattt-20', web: 'whoaneatweb-20' };
   var tag = DEFAULT_TAG;
