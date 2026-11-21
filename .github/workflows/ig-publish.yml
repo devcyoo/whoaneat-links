@@ -3,6 +3,10 @@ on:
   schedule:
     - cron: "*/30 * * * *"      # check the queue every 30 min
   workflow_dispatch:
+    inputs:
+      diag:
+        description: "run diagnostics only"
+        default: "false"
 permissions:
   contents: write
 concurrency: ig-publish
@@ -23,8 +27,14 @@ jobs:
         run: |
           if [ -z "$IG_TOKEN" ]; then echo "IG_TOKEN not set yet - skipping"; exit 0; fi
           python scripts/ig_refresh_token.py
+      - name: Diagnostics
+        if: github.event.inputs.diag == 'true'
+        env:
+          IG_TOKEN: ${{ secrets.IG_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+        run: python scripts/ig_diag.py
       - name: Publish due Reels
-        if: github.event.schedule != '17 9 * * 1'
+        if: github.event.inputs.diag != 'true'
         env:
           IG_TOKEN: ${{ secrets.IG_TOKEN }}
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
