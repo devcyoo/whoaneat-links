@@ -1,6 +1,93 @@
-{"cold": {"kicker": "Black Friday gift guide", "title": "For the person who's always cold",
+{
+ "cold": {
+  "kicker": "Black Friday gift guide",
+  "title": "For the person who's always cold",
   "slides": [
-   {"title": "Heated throw blanket", "sub": "9 heat levels, one button. The couch just got better.", "vid": "73c7c83c-88ab-40ee-ad0c-543297695b64", "t": 9, "cy": 0.58},
-   {"title": "Windshield snow cover", "sub": "Throw it on at night, peel it off at 7am. No scraping.", "vid": "a87accda-f090-4bf6-9348-a05ff1ee1407", "t": 2.5},
-   {"title": "Rechargeable hand warmers", "sub": "Pocket-size heat that charges like a phone.", "vid": "18eea762-2024-4f24-bd77-dea8396fbd67", "t": 2.5},
-   {"title": "Top-fill humidifier", "sub": "Dry winter air, fewer static zaps.", "vid": "b9ba3371-06d4-4740-a43a-ec6f757c66df", "t": 2.5}]}}
+   {
+    "title": "Heated throw blanket",
+    "sub": "9 heat levels, one button. The couch just got better.",
+    "vid": "73c7c83c-88ab-40ee-ad0c-543297695b64",
+    "t": 9,
+    "cy": 0.58
+   },
+   {
+    "title": "Windshield snow cover",
+    "sub": "Throw it on at night, peel it off at 7am. No scraping.",
+    "vid": "a87accda-f090-4bf6-9348-a05ff1ee1407",
+    "t": 2.5
+   },
+   {
+    "title": "Rechargeable hand warmers",
+    "sub": "Pocket-size heat that charges like a phone.",
+    "vid": "18eea762-2024-4f24-bd77-dea8396fbd67",
+    "t": 2.5
+   },
+   {
+    "title": "Top-fill humidifier",
+    "sub": "Dry winter air, fewer static zaps.",
+    "vid": "b9ba3371-06d4-4740-a43a-ec6f757c66df",
+    "t": 2.5
+   }
+  ]
+ },
+ "car": {
+  "kicker": "Black Friday gift guide",
+  "title": "For the person who hates winter mornings",
+  "slides": [
+   {
+    "title": "Windshield snow cover",
+    "sub": "Throw it on at night, peel it off in the morning. No scraping.",
+    "vid": "a87accda-f090-4bf6-9348-a05ff1ee1407",
+    "t": 2.5
+   },
+   {
+    "title": "Extendable snow brush",
+    "sub": "Reaches the middle of the roof without leaning on the car.",
+    "vid": "930b1c88-471e-475d-be6e-8183685a0d1f",
+    "t": 2.5
+   },
+   {
+    "title": "MagSafe car mount",
+    "sub": "Snaps on one-handed. Phone stays put on bumpy roads.",
+    "vid": "25a72fde-cde8-4ee8-b1a6-febd903be028",
+    "t": 2.5
+   },
+   {
+    "title": "Rechargeable hand warmers",
+    "sub": "Pocket-size heat that charges like a phone.",
+    "vid": "18eea762-2024-4f24-bd77-dea8396fbd67",
+    "t": 4
+   }
+  ]
+ },
+ "home": {
+  "kicker": "Black Friday gift guide",
+  "title": "Small upgrades for a cozier home",
+  "slides": [
+   {
+    "title": "Motion sensor cabinet lights",
+    "sub": "Open the door, the light comes on. No switch, no wiring.",
+    "vid": "4cf876e1-dd69-4747-a4ae-3c52fdc1d374",
+    "t": 2.5
+   },
+   {
+    "title": "Electric spin scrubber",
+    "sub": "It does the scrubbing, so your arms don't have to.",
+    "vid": "0a07d234-62e7-492b-9335-d7faf2020fb9",
+    "t": 2.5
+   },
+   {
+    "title": "Window insulation kit",
+    "sub": "Seals drafty windows for the winter.",
+    "vid": "8fe11ea8-4032-45d6-912c-5fb2a1ec3778",
+    "t": 2.5
+   },
+   {
+    "title": "Shower squeegee",
+    "sub": "Ten seconds after a shower, fewer water spots.",
+    "vid": "87843444-2d74-4e3b-8dbb-04ba7657b718",
+    "t": 2.5
+   }
+  ]
+ }
+}
