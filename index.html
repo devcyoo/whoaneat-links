@@ -76,7 +76,8 @@ const items=[
 ["MagSafe car phone mount","Phone sliding off the seat again?","B0BQRJ6Y5P"],
 ["Window insulation kit","Drafty window all winter?","B09JM8DCYL"],
 ["Electric spin scrubber","Scrubbing the tub on your knees again?","B09P51V2LH"],
-["Vegetable chopper","Dicing onions for 20 minutes?","B0764HS4SL"]
+["Vegetable chopper","Dicing onions for 20 minutes?","B0764HS4SL"],
+["Mug warmer","Coffee always goes cold at your desk?","B0CC8DS2S5"]
 ];
 document.getElementById('list').innerHTML=items.map(([t,h,a,ca],i)=>`<li><a class="card" href="https://www.amazon.com/dp/${a}?tag=${window.WN_TAG||'whoaneat02-20'}" target="_blank" rel="noopener sponsored"><span class="n">${i+1}</span><span><span class="t">${t}</span><span class="h">${h}</span></span><span class="go">Amazon →</span></a>${ca?`<a class="ca" href="https://www.amazon.ca/dp/${ca}?tag=whoaneat0a-20" target="_blank" rel="noopener sponsored">🇨🇦 Amazon.ca</a>`:''}</li>`).join('');
 }
