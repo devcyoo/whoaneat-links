@@ -2,7 +2,6 @@ name: Instagram auto-publish
 on:
   schedule:
     - cron: "*/30 * * * *"      # check the queue every 30 min
-    - cron: "17 9 * * 1"        # weekly token refresh (Mon 09:17 UTC)
   workflow_dispatch:
 permissions:
   contents: write

@@ -15,6 +15,13 @@ def _detect_api():
             r = {"error": str(e)}
         if "error" not in r:
             print(f"token OK via {base.split('/')[2]} as @{r.get('username')}")
+            try:
+                d = requests.get(f"{base}/debug_token", params={"input_token": TOKEN, "access_token": TOKEN}, timeout=30).json().get("data", {})
+                exp = d.get("expires_at"); dexp = d.get("data_access_expires_at")
+                fmt = lambda t: "never" if not t else dt.datetime.utcfromtimestamp(t).strftime("%Y-%m-%d %H:%MZ")
+                print(f"token type={d.get('type')} expires={fmt(exp)} data_access_expires={fmt(dexp)} scopes={d.get('scopes')}")
+            except Exception as e:
+                print("debug_token unavailable:", str(e)[:120])
             return base
         print(f"token check failed via {base.split('/')[2]}: {str(r.get('error'))[:200]}")
     sys.exit("IG token not valid on either API host")
