@@ -72,8 +72,17 @@ def slide(n, s, out):
     p, m = photo(frame(s["vid"], s["t"]), 900, h, s.get("cy", 0.5))
     img.paste(p, (90, top), m); img.save(out, quality=90)
 
+def contact(vid, times=(1, 3, 4.5, 6, 7.5, 9, 10.5, 12)):
+    tiles = [frame(vid, t).resize((180, 320)) for t in times]
+    sheet = Image.new("RGB", (180 * len(tiles), 320))
+    for k, t in enumerate(tiles): sheet.paste(t, (180 * k, 0))
+    sheet.save(os.path.join(ROOT, "posts", f"_contact-{vid[:8]}.jpg"), quality=80)
+
 if __name__ == "__main__":
     cfg = json.load(open(os.path.join(ROOT, "scripts", "carousels.json")))
+    if sys.argv[1] == "contact":
+        for v in sys.argv[2:]: contact(v)
+        sys.exit()
     for key in sys.argv[1:]:
         c = cfg[key]
         cover(c, os.path.join(ROOT, "posts", f"{key}-0.jpg"))
