@@ -3,10 +3,10 @@
     "name": "windshield-v2",
     "video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3MI2NyIthUwXHQgnoVDvzfzAvZ9/7a04660a-8e25-4cd1-8327-d0d29fab3fa6.mp4",
     "publish_at": "2026-11-21T03:08:22+00:00",
-    "status": "pending",
+    "status": "failed",
     "caption": "Peel, don't scrape ❄️\nLink in bio 👆 (whoaneat.com/snow)\n#ad #affiliate · AI visualization of a real product · As an Amazon Associate I earn from qualifying purchases.\n\n#wintercar #canadianwinter #carhacks #amazonfinds #whoaneat",
-    "attempts": 2,
-    "last_error": "{'message': 'Fatal', 'code': -1, 'type': 'OAuthException', 'error_subcode': 2207085, 'is_transient': False, 'error_user_msg': 'An internal server error occurred. Please try again later.', 'error_user_title': 'Generic Internal Error', 'fbtrace_id': 'AraCOBh7nAsfPMhuMNyU6U6'}"
+    "attempts": 3,
+    "last_error": "{'message': 'Fatal', 'code': -1, 'type': 'OAuthException', 'error_subcode': 2207085, 'is_transient': False, 'error_user_msg': 'An internal server error occurred. Please try again later.', 'error_user_title': 'Generic Internal Error', 'fbtrace_id': 'ATPvkXSK_lrfR5hShD7NTML'}"
   },
   {
     "name": "pet-hair-roller",
