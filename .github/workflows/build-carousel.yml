@@ -1,0 +1,16 @@
+name: Build carousel images
+on:
+  workflow_dispatch:
+    inputs:
+      keys: {description: "carousel keys, space separated", required: true, default: "cold"}
+permissions: {contents: write}
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg && pip install -q pillow
+      - run: python scripts/build_carousel.py ${{ inputs.keys }}
+      - run: |
+          git config user.name "whoaneat-bot"; git config user.email "bot@whoaneat.com"
+          git add posts && git commit -m "Rebuild carousel images: ${{ inputs.keys }}" && git pull --rebase -q && git push
