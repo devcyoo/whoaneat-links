@@ -5,6 +5,21 @@ API = "https://graph.instagram.com/v23.0"
 TOKEN, IG_USER = os.environ["IG_TOKEN"], os.environ["IG_USER_ID"]
 QUEUE = "queue/instagram.json"
 
+def _detect_api():
+    """New Meta apps use 'Unified login'; its tokens may need graph.facebook.com instead of graph.instagram.com."""
+    for base, path in (("https://graph.instagram.com/v23.0", "me?fields=user_id,username"),
+                       ("https://graph.facebook.com/v23.0", f"{IG_USER}?fields=username")):
+        try:
+            r = requests.get(f"{base}/{path}", params={"access_token": TOKEN}, timeout=30).json()
+        except Exception as e:
+            r = {"error": str(e)}
+        if "error" not in r:
+            print(f"token OK via {base.split('/')[2]} as @{r.get('username')}")
+            return base
+        print(f"token check failed via {base.split('/')[2]}: {str(r.get('error'))[:200]}")
+    sys.exit("IG token not valid on either API host")
+API = _detect_api()
+
 def call(method, path, **params):
     params["access_token"] = TOKEN
     r = requests.request(method, f"{API}/{path}", params=params, timeout=60)
