@@ -52,7 +52,7 @@ def create(item):
         for k in kids: wait(k)
         return call("POST", f"{IG_USER}/media", media_type="CAROUSEL", children=",".join(kids), caption=item["caption"])["id"]
     return call("POST", f"{IG_USER}/media", media_type="REELS", video_url=item["video_url"],
-                caption=item["caption"])["id"]
+                caption=item["caption"], thumb_offset="1500", share_to_feed="true")["id"]
 
 def publish(item):
     c = create(item)
