@@ -56,6 +56,7 @@ def create(item):
 
 def publish(item):
     c = create(item)
+    print("container created", c)
     for _ in range(40):                       # wait up to ~10 min for Instagram to process the video
         st = call("GET", c, fields="status_code,status")
         if st["status_code"] == "FINISHED":
@@ -65,6 +66,7 @@ def publish(item):
         time.sleep(15)
     else:
         raise RuntimeError(f"container {c} still processing")
+    print("container finished, publishing", c)
     media_id = call("POST", f"{IG_USER}/media_publish", creation_id=c)["id"]
     link = call("GET", media_id, fields="permalink").get("permalink", "")
     return media_id, link
